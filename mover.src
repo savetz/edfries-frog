@@ -1,0 +1,20 @@
+ ORG $680
+ LDA #$00
+ STA $C0
+ LDA #$40
+ STA $C1
+ LDA #$00
+ STA $C2
+ LDA #$B0
+ STA $C3
+ LDX #$0F
+ LDY #$0
+LOOP LDA ($C0),Y
+ STA ($C2),Y
+ DEY
+ BNE LOOP
+ INC $C1
+ INC $C3
+ DEX
+ BPL LOOP
+ JMP $B000
